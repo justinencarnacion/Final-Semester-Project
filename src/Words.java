@@ -15,8 +15,8 @@ public class Words  {
      */
     private boolean isConnected;
 
-
-
+    private ArrayList<String> wordList = new ArrayList<String>();
+    private ArrayList<String> descriptionList = new ArrayList<String>();
 
     private ArrayList<Words> wordBank = new ArrayList<Words>();
 
@@ -28,6 +28,9 @@ public class Words  {
     public Words(String wordName, String wordDescription) {
         this.wordName = wordName;
         this.wordDescription = wordDescription;
+        wordBank.add(this);
+        wordList.add(this.wordName);
+        descriptionList.add(this.wordDescription);
     }
 
     /**
@@ -62,6 +65,11 @@ public class Words  {
     public void addWordToWordBank (Words words) {
         wordBank.add(words);
     }
+
+    /**
+     *
+     * @param newWords
+     */
     public void addMultipleWords(ArrayList<Words> newWords) {
         for (Words newWord : newWords) {
             addWordToWordBank(newWord);
@@ -74,6 +82,8 @@ public class Words  {
      * @return
      */
     public ArrayList<Words> getWordBank() {return wordBank;}
+    public ArrayList<String> getWordList() {return wordList;}
+    public ArrayList<String> getDescriptionList() {return descriptionList;}
 
     /**
      * Checks to see if there are at least 2 connections
