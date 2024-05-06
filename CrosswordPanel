@@ -1,3 +1,8 @@
+import java.awt.GridLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class CrosswordPanel extends JPanel{
 	private JTextField textFields[][];
@@ -10,9 +15,9 @@ public class CrosswordPanel extends JPanel{
         setLayout(new GridLayout(w, h));
         textFields = new JTextField[w][h];
 
-        for (int y = 0; y < h; y++)
+        for (int x = 0; x < w; x++)
         {
-            for (int x = 0; x < w; x++)
+            for (int y = 0; y < h; y++)
             {
                 char c = array[x][y];
                 if (c != 0)
@@ -36,9 +41,9 @@ public class CrosswordPanel extends JPanel{
         int w = textFields.length;
         int h = textFields[0].length;
         char crossword[][] = new char[w][h];
-        for (int y = 0; y < h; y++)
+        for (int x = 0; x < w; x++)
         {
-            for (int x = 0; x < w; x++)
+            for (int y = 0; y < h; y++)
             {
                 if (textFields[x][y] != null)
                 {
