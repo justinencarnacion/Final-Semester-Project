@@ -10,7 +10,7 @@ public class Frame extends JFrame {
         initializeUI();
     }
 
-    private void initializeUI() {
+    public void initializeUI() {
         setLayout(new BorderLayout());
 
         JPanel boardPanel = new JPanel();
@@ -18,7 +18,7 @@ public class Frame extends JFrame {
 
         JTextArea descriptionArea = new JTextArea();
         descriptionArea.setText("Word Search Descriptions Go Here");
-        descriptionArea.setEditable(true);
+        descriptionArea.setEditable(false);
         descriptionArea.setLineWrap(true);
         descriptionArea.setWrapStyleWord(true);
 
