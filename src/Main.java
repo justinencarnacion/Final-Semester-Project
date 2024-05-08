@@ -1,3 +1,5 @@
+import CrosswordVisuals.Frame;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -22,6 +24,11 @@ public class Main {
 
         System.out.println(word1.compareLettersTo("Hi"));
         System.out.println(word2.compareLettersTo(word4.getWordName()));
+
+        SwingUtilities.invokeLater(() -> {
+            Frame frame = new Frame();
+            frame.setVisible(true);
+        });
 
 
 

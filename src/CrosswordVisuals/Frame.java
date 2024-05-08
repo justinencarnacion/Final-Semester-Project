@@ -1,3 +1,5 @@
+package CrosswordVisuals;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -29,10 +31,4 @@ public class Frame extends JFrame {
         scrollPane.setPreferredSize(new Dimension(200, getHeight()));
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            Frame frame = new Frame();
-            frame.setVisible(true);
-        });
-    }
 }
