@@ -1,0 +1,14 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class WordSearchDisplay extends JFrame {
+    public WordSearchDisplay() {
+        super("Word Search Puzzle");
+
+        JTextArea infoArea = new JTextArea();
+        infoArea.setText("Yap Yap Yap");
+        infoArea.setEditable(false);
+        infoArea.setLineWrap(true);
+        infoArea.setWrapStyleWord(true);
+        infoArea.setForeground(Color.BLACK);  
+        infoArea.setBackground(Color.WHITE);  
