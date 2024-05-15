@@ -1,0 +1,6 @@
+booleans: Variables which store true or false values
+String: A class built into Java and is commonly used for storing words
+Float: a primitive type similar to double but stores less information
+long: an uncommon primitive type which stores very large integers
+extends: the keyword for an inherited class
+Int: a primitive type for holding whole numbers

@@ -2,89 +2,95 @@ package CrosswordVisuals;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import javax.swing.*;
 
 
-public abstract class CrosswordGUI extends JFrame implements ActionListener{
+public class CrosswordGUI {
 
-    private static void createAndShowGUI()
+    private final String w = "";
+    private final String description = "";
+
+    private JTextArea descriptionArea = new JTextArea();
+
+    private CrosswordLayout layout1;
+    private CrosswordLayout layout2;
+    private CrosswordLayout layout3;
+    private CrosswordLayout layout4;
+    private CrosswordLayout layout5;
+
+    private CrosswordPanel panel;
+
+    private Frame frame;
+
+    public JTextArea getDescriptionArea() {
+        return descriptionArea;
+    }
+
+    public void createAndShowGUI()
     {
-        JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame = new Frame(this);
+        frame.createFrame();
+        this.panel = frame.getPanel();
+        layout1 = new CrosswordLayout(this, panel, "levelLayout", "levelOne", "level", "dOne");
+        layout2 = new CrosswordLayout(this, panel, "levelLayout", "levelTwo", "level", "dTwo");
+        layout3 = new CrosswordLayout(this, panel, "levelLayout", "levelThree", "level", "dThree");
+        layout4 = new CrosswordLayout(this, panel, "levelLayout", "levelFour", "level", "dFour");
+        layout5 = new CrosswordLayout(this, panel, "levelLayout", "levelFIve", "level", "dFive");
 
-        f.getContentPane().setLayout(new BorderLayout());
 
-        JPanel container = new JPanel(new FlowLayout());
-        final CrosswordPanel panel = new CrosswordPanel();
-        container.add(panel);
-        f.getContentPane().add(container, BorderLayout.CENTER);
-
-        JButton generateButton = new JButton("Generate");
-        generateButton.addActionListener(new ActionListener()
+        frame.getLvl1Button().addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                generate(panel);
+                layout1.generate();
             }
-
-            private void generate(CrosswordPanel panel) {
-                // TODO Auto-generated method stub
-                File file = new File("crosswordExample.txt");
-
-                char[][] cw = null;
-
-                try {
-
-                    Scanner sc = new Scanner(file);
-                    int w = sc.nextInt();
-                    int h = sc.nextInt();
-                    cw = new char[w][h];
-                    for (int r = 0; r < w; r++) {
-                        for (int c = 0; c < h; c++) {
-                            if (sc.hasNext()) {
-                                String str = sc.next();
-                                cw[r][c] = str.charAt(0);
-                            }
-                        }
-                    }
-                    sc.close();
-                }
-                catch (FileNotFoundException e1) {
-                    e1.printStackTrace();
-                }
-
-                panel.setCrossword(cw);
-
-
-            }
-
 
         });
-        f.getContentPane().add(generateButton, BorderLayout.SOUTH);
 
-        f.setSize(800, 800);
-        f.setLocationRelativeTo(null);
-        f.setVisible(true);
-    }
-    public static void main(String[] args)
-    {
-        SwingUtilities.invokeLater(new Runnable()
+        frame.getLvl2Button().addActionListener(new ActionListener()
         {
             @Override
-            public void run()
+            public void actionPerformed(ActionEvent e)
             {
-                createAndShowGUI();
+                layout2.generate();
             }
+
         });
+
+        frame.getLvl3Button().addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                layout3.generate();
+            }
+
+        });
+
+        frame.getLvl4Button().addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                layout4.generate();
+            }
+
+        });
+
+        frame.getLvl5Button().addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                layout5.generate();
+            }
+
+        });
+
+
     }
+
+
 
 }
