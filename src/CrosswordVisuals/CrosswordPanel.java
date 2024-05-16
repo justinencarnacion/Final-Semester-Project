@@ -18,6 +18,10 @@ public class CrosswordPanel extends JPanel {
     	keyWords = words;
     }
 
+      /**
+     * Creates the crossword panel
+     * @param array
+     */
     public void setCrossword(char[][] array) {
         data = array;
         removeAll();
@@ -54,6 +58,10 @@ public class CrosswordPanel extends JPanel {
         repaint();
     }
 
+      /**
+     * Getter for crossword panel
+     * @return crossword
+     */
     public char[][] getCrossword() {
 		int w = textFields.length;
         int h = textFields[0].length;
@@ -80,6 +88,9 @@ public class CrosswordPanel extends JPanel {
         return crossword;
     }
 
+      /**
+     * Checks the answers of the user input to see if their answer was correct or not
+     */
     public void checkWords() {
     	if (textFields != null) {
     		ArrayList<Word> textWords = wordsFound(getCrossword());
@@ -87,7 +98,11 @@ public class CrosswordPanel extends JPanel {
         	compare(textWords, keyWords);
     	}
     }
-    
+
+     /**
+     * If user answer is correct, turns those boxes for which the answer is correct to color green
+     * @param word
+     */
     public static void setGreen(Word word) {
         if (word.getIsVert()) {
             for (int x = word.getXPos(); x < word.getXPos() + word.getWordName().length(); x++) {
@@ -101,7 +116,13 @@ public class CrosswordPanel extends JPanel {
             }
         }
     }
-    
+
+      /**
+     * Checks if the horizontally inputted words are correct
+     * Returns a new list of all the correct words from the crossword the user played
+     * @param crossword
+     * @return wordList
+     */
     public ArrayList<String> wordsFoundHorizontal(char[][] crossword){ //FINISHED
         ArrayList<String> wordList = new ArrayList<String>();
         for (int i = 0; i < crossword.length; i++) {
@@ -124,6 +145,12 @@ public class CrosswordPanel extends JPanel {
         return wordList;
     }
 
+        /**
+     * Checks if the vertically inputted words are correct
+     * Returns a new list of all the correct words from the crossword the user played
+     * @param crossword
+     * @return wordList
+     */
     public ArrayList<String> wordsFoundVertical(char[][] crossword){ //FINISHED
         ArrayList<String> wordList = new ArrayList<String>();
         for (int i = 0; i < crossword[0].length; i++) {
@@ -145,7 +172,12 @@ public class CrosswordPanel extends JPanel {
         }
         return wordList;
     }
-    
+
+       /**
+     * Checks both horizontal and vertical inputs to check if user inputted answers are correct
+     * @param crossword
+     * @return wordList
+     */
     public static ArrayList<Word> wordsFound(char[][] crossword){ //FINISHED
         ArrayList<Word> wordList = new ArrayList<Word>();
         for (int i = 0; i < crossword.length; i++) { //finds words horizontally
@@ -185,7 +217,11 @@ public class CrosswordPanel extends JPanel {
         return wordList;
     }
     
-    
+     /**
+     * Checks if user input is the correct answer and sets the answer boxes to green if correct
+     * @param crossword
+     * @param answerList
+     */
     public void compare(ArrayList<Word> wordList, ArrayList<Word> answerList) { //NOT WORKING
     	for (Word tempWord : wordList) {
     		for (Word tempKey : answerList) {
