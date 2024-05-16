@@ -26,6 +26,13 @@ public class CrosswordLayout {
     private Word word = new Word();
     private Scanner scan;
 
+   /** Creates the layout of the crossword panel 
+    * @param crosswordGUI
+    * @param panel
+    * @param layoutDirectory
+    * @param fileLayout
+    * @param levelDirectory
+     */ @param fileLevel
     public CrosswordLayout(CrosswordGUI crosswordGUI, CrosswordPanel panel, String layoutDirectory, String fileLayout, String levelDirectory, String fileLevel) {
         this.GUI = crosswordGUI;
         this.panel = panel;
@@ -37,6 +44,9 @@ public class CrosswordLayout {
         this.horizontalDescription = "";
     }
 
+     /**
+     * Generates crossword based on specified level
+     */
     public void generate() {
         File levelLayout = new File(layoutDirectory + "/" + fileLayout);
         File level = new File(levelDirectory + "/" + fileLevel);
@@ -70,7 +80,9 @@ public class CrosswordLayout {
 
     }
 
-
+    /** Opens file and creates Scanner object to read through file
+    * @param file
+    */
     public void open(File file) {
         try {
             scan = new Scanner(file);
@@ -79,6 +91,9 @@ public class CrosswordLayout {
         }
     }
 
+    /**
+    * Creates a lists of the words and a list of all the descriptions
+    */
     public void read() {
         String line;
         String word;
@@ -100,6 +115,9 @@ public class CrosswordLayout {
         scan.close();
     }
 
+     /**
+     * Creates the description of a vertical word for the crossword
+     */
     public void addVerticalDescription() {
         verticalDescription = "DOWN:\n";
         for (String str : panel.wordsFoundVertical(getCw())) {
@@ -114,6 +132,9 @@ public class CrosswordLayout {
         verticalDescription = verticalDescription.substring(0, verticalDescription.length() - 2);
     }
 
+     /**
+     * Creates the description of a horizontal word for the crossword
+     */
     public void addHorizontalDescription() {
         horizontalDescription = "ACROSS:\n";
         for (String str : panel.wordsFoundHorizontal(getCw())) {
@@ -128,6 +149,9 @@ public class CrosswordLayout {
         horizontalDescription = horizontalDescription.substring(0,horizontalDescription.length()-2);
     }
 
+  /**
+     * Creates a 2D character array comprised of the characters that make up a crossword
+     */
     public char[][] getCw() {
         return cw;
     }
