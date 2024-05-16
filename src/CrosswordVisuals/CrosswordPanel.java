@@ -1,5 +1,6 @@
 package CrosswordVisuals;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class CrosswordPanel extends JPanel {
-    private JTextField[][] textFields;
+    private static JTextField[][] textFields;
     private char[][] data;
     private ArrayList<Word> keyWords;
 
@@ -79,18 +80,26 @@ public class CrosswordPanel extends JPanel {
         return crossword;
     }
 
-    public void checkWords() { //NOT DONE
+    public void checkWords() {
     	if (textFields != null) {
     		ArrayList<Word> textWords = wordsFound(getCrossword());
         	
-        	String wordsCorrect = compare(textWords, keyWords);
-        	printArray(textWords);
-        	System.out.println(wordsCorrect);
+        	compare(textWords, keyWords);
     	}
     }
     
-    public static void setGreen(Word word) {  //WORK ON THIS PLEASE
-    	
+    public static void setGreen(Word word) {
+        if (word.getIsVert()) {
+            for (int x = word.getXPos(); x < word.getXPos() + word.getWordName().length(); x++) {
+                textFields[x][word.getYPos()].setBackground(Color.green);
+                textFields[x][word.getYPos()].setEditable(false);
+            }
+        } else {
+            for (int y = word.getYPos(); y < word.getYPos() + word.getWordName().length(); y++) {
+                textFields[word.getXPos()][y].setBackground(Color.green);
+                textFields[word.getXPos()][y].setEditable(false);
+            }
+        }
     }
     
     public ArrayList<String> wordsFoundHorizontal(char[][] crossword){ //FINISHED
@@ -166,7 +175,7 @@ public class CrosswordPanel extends JPanel {
                         word += crossword[k][i];
                         k++;
                     }
-                    wordList.add(new Word(word,i,j,true));
+                    wordList.add(new Word(word,j,i,true));
                     j = k;
                 } else {
                     j++;
@@ -176,23 +185,15 @@ public class CrosswordPanel extends JPanel {
         return wordList;
     }
     
-    public static String compare(ArrayList<Word> wordList, ArrayList<Word> answerList) { //NOT WORKING
-    	String wordsCorrect = "";
+    
+    public void compare(ArrayList<Word> wordList, ArrayList<Word> answerList) { //NOT WORKING
     	for (Word tempWord : wordList) {
     		for (Word tempKey : answerList) {
     			if (tempWord.getWordName().equalsIgnoreCase(tempKey.getWordName()) && tempWord.getIsVert() == tempKey.getIsVert() && tempWord.getXPos() == tempKey.getXPos() && tempWord.getYPos() == tempKey.getYPos()) {
-	    			wordsCorrect += tempWord.getWordName() + ", ";
 	    			setGreen(tempWord);
 	    		}
     		}
     	}
-    	if (wordsCorrect.length() > 0) {
-    		wordsCorrect = wordsCorrect.substring(0, wordsCorrect.length() - 2) + " is/are correct";
-    	} else {
-    		wordsCorrect = "No words are correct";
-    	}
-    	
-    	return wordsCorrect;
     }
 
     public void printArray(ArrayList<Word> cw) { //method that prints all words found in array I was using for debugging
