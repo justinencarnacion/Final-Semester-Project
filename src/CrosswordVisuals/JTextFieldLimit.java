@@ -12,6 +12,12 @@ public class JTextFieldLimit extends PlainDocument {
         this.limit = limit;
     }
 
+     /**
+     * Creates the text field limit 
+     * @param offset
+     * @param str
+     * @param attr
+     */
     public void insertString( int offset, String  str, AttributeSet attr ) throws BadLocationException {
         if (str == null) return;
 
