@@ -45,6 +45,8 @@ public class Word {
      */
     public Word() {
     }
+
+    
     public Word(String w, int xP, int yP, boolean isVert) {
         wordName = w;
         xPos = xP;
@@ -52,34 +54,69 @@ public class Word {
         isVertical = isVert;
     }
 
+      /**
+     * Returns x position of word
+     * @return xPos
+     */
     public int getXPos() {
         return xPos;
     }
 
+        /**
+     * Returns y position of word
+     * @return yPos
+     */
     public int getYPos() {
-        return yPos;
+        return yPos; 
     }
 
+      /**
+     * Returns whether or not the word entered is vertical
+     * @return xPos
+     */
     public boolean getIsVert() {
         return isVertical;
     }
+
+       /**
+     * Sets the name of the word
+     * @param name
+     */
     public void setName(String name) {
         this.wordName = name;
     }
 
+      /**
+     * Sets the description of the word
+     * @param description
+     */
     public void setDescription(String description) {
         this.wordDescription = description;
     }
 >>>>>>> Stashed changes
 
+     /**
+     * Returns the x position of a word
+     * @return xPos
+     */
 	public int getXPos() {
 		return xPos;
 	}
-	
+
+    
+     /**
+     * Returns the y position of a word
+     * @return yPos
+     */
 	public int getYPos() {
 		return yPos;
 	}
+
 	
+     /**
+     * Returns whether or not the word entered is vertical
+     * @return isVertical
+     */
 	public boolean getIsVert() {
 		return isVertical;
 	}
@@ -126,22 +163,31 @@ public class Word {
     }
 
     /**
-     *
+     * adds a word to the word bank
+     * @param word
      */
     public void addToWordBank (Word word) {
         wordBank.add(word);
     }
-    
+
+     /**
+     * adds a word to the word list
+     * @param word
+     */
     public void addToWordList (String word) {
         wordList.add(word);
     }
-    
+
+     /**
+     * adds a description to the description list
+     * @param description
+     */
     public void addToDescriptionList (String description) {
         descriptionList.add(description);
     }
     
 =======
-     * adds this word to wordBank
+     /* adds this word to wordBank
      * @param word
      */
     public void addToWordBank(Word word) {
@@ -219,8 +265,8 @@ public class Word {
 
 <<<<<<< Updated upstream
     /**
-     *
-     * @return
+     *Returns wordbank contents as a string
+     * @return a.substring(0,a.length()-2)= "]"
      */
     public String getWordBankToString() {
         String a = "[";
@@ -253,7 +299,8 @@ public class Word {
     /**
      * Pre-Condition: actual word is a word with length > 0
      * @param actualWord
-     * @return
+     * @return -1
+     * @return 1
      */
     public int compareLettersTo(String actualWord) {
         if (this.getWordName().length() == 0) return -99;
