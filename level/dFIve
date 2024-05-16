@@ -1,7 +1,7 @@
-Exception: Allowing error cases to occur in your code
-else: if-____ statement
-Super: the keyword to inherit variables for an inherited class’ constructor
-Private: Only accessible within the class
-Byte: Unit of measurement worth 8 bits
-instance: One occurrence of something
-error: A program gives this when something goes wrong
+0 0 Exception: Allowing error cases to occur in your code; h
+0 0 else: if-__ statement; v
+2 0 Super: the keyword to inherit variables for an inherited class’ constructor; h
+4 2 Private: Only accessible within the class; h
+7 3 Byte: Unit of measurement worth 8 bits; h
+0 6 instance: One occurrence of something; v
+4 8 error: A program gives this when something goes wrong; v

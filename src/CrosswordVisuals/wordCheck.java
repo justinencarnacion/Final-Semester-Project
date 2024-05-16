@@ -1,10 +1,13 @@
+package CrosswordVisuals;
+
+import CrosswordLogic.Word;
 
 import java.util.ArrayList;
 
 public class wordCheck {
 
-		public static ArrayList<WordStore> wordsFound(char[][] crossword){ //FINISHED
-	        ArrayList<WordStore> wordList = new ArrayList<WordStore>();
+		public static ArrayList<Word> wordsFound(char[][] crossword){ //FINISHED
+	        ArrayList<Word> wordList = new ArrayList<Word>();
 	        for (int i = 0; i < crossword.length; i++) {
 	            int j = 0;
 	            while (j < crossword[0].length) {
@@ -15,7 +18,7 @@ public class wordCheck {
 	                        word += crossword[i][k];
 	                        k++;
 	                    }
-	                    wordList.add(new WordStore(word,i,j,false));
+	                    wordList.add(new Word(word,i,j,false));
 	                    j = k;
 	                } else {
 	                    j++;
@@ -32,7 +35,7 @@ public class wordCheck {
 	                        word += crossword[k][i];
 	                        k++;
 	                    }
-	                    wordList.add(new WordStore(word,i,j,true));
+	                    wordList.add(new Word(word,j,i,true));
 	                    j = k;
 	                } else {
 	                    j++;
@@ -43,14 +46,14 @@ public class wordCheck {
 	    }
 
 		
-	    public static String compare(ArrayList<WordStore> wordList, char[][] crosswordKey) {
+	    public static String compare(ArrayList<Word> wordList, char[][] crosswordKey) {
 	    	String wordsCorrect = "";
-	    	ArrayList<WordStore> answerKey = wordsFound(crosswordKey);
-	    	for (WordStore tempWord : wordList) {
-	    		for (WordStore tempKey : answerKey) {
+	    	ArrayList<Word> answerKey = wordsFound(crosswordKey);
+	    	for (Word tempWord : wordList) {
+	    		for (Word tempKey : answerKey) {
 	    			if (tempWord.getWord().equals(tempKey.getWord()) && tempWord.getIsVert() == tempKey.getIsVert() && tempWord.getXPos() == tempKey.getXPos() && tempWord.getYPos() == tempKey.getYPos()) {
 		    			wordsCorrect += tempWord.getWord() + ", ";
-		    			setGreen(tempWord);
+		    			//setGreen(tempWord);
 		    		}
 	    		}
 	    	}

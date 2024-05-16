@@ -1,9 +1,12 @@
 package CrosswordVisuals;
 
+import CrosswordLogic.Word;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLOutput;
 
 public class Frame {
 
@@ -14,11 +17,15 @@ public class Frame {
     private JButton lvl3Button;
     private JButton lvl4Button;
     private JButton lvl5Button;
+    private Word word;
     private CrosswordPanel panel;
+    private CrosswordLayout layout;
+
 
     private CrosswordGUI GUI;
 
     public Frame(CrosswordGUI GUI) {
+
         this.GUI = GUI;
     }
 
@@ -37,13 +44,13 @@ public class Frame {
         panel = new CrosswordPanel();
         container.add(panel);
         f.getContentPane().add(container, BorderLayout.CENTER);
-        f.setResizable(false);
+        f.setResizable(true);
 
         JPanel btnPnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton checkButton = new JButton("Check Words");
         checkButton.addActionListener(new ActionListener(){ //CALL TO checkWords
             public void actionPerformed(ActionEvent ae){
-                //panel.checkWords();
+                panel.checkWords();
             }
         });
         btnPnl.add(checkButton);
@@ -69,15 +76,17 @@ public class Frame {
         GUI.getDescriptionArea().setEditable(false);
         GUI.getDescriptionArea().setLineWrap(true);
         GUI.getDescriptionArea().setWrapStyleWord(true);
-        JScrollPane scrollPane = new JScrollPane(GUI.getDescriptionArea());
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        f.add(scrollPane, BorderLayout.EAST);
 
-        scrollPane.setPreferredSize(new Dimension(200, f.getHeight()));
+        JScrollPane descriptionPlane = new JScrollPane(GUI.getDescriptionArea());
+        descriptionPlane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        f.add(descriptionPlane, BorderLayout.EAST);
+        descriptionPlane.setPreferredSize(new Dimension(200, f.getHeight()));
+
 
         f.setSize(800, 800);
         f.setLocationRelativeTo(null);
         f.setVisible(true);
+
     }
 
         /**

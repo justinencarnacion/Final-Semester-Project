@@ -76,8 +76,6 @@ public class CrosswordLayout {
         addVerticalDescription();
         finalOutput = verticalDescription + "\n\n\n\n\n" + horizontalDescription;
         GUI.getDescriptionArea().setText(finalOutput);
-
-
     }
 
     /** Opens file and creates Scanner object to read through file
@@ -98,34 +96,48 @@ public class CrosswordLayout {
         String line;
         String word;
         String description;
+        int x;
+        int y;
+        boolean isVertical;
         this.word.getDescriptionList().clear();
         this.word.getWordList().clear();
         this.word.getFullList().clear();
         do {
+            x = scan.nextInt();
+            y = scan.nextInt();
             line = scan.nextLine();
-            word = line.substring(0, line.indexOf(":"));
+            word = line.substring(1, line.indexOf(":"));
             description = line.substring(line.indexOf(":") + 2);
+            String vertical = line.substring(line.indexOf(";") + 2);
+            if (vertical.equalsIgnoreCase("v")) {
+                isVertical = true;
+            } else {
+                isVertical = false;
+            }
+            this.word.addToWordBank(new Word(word, x, y, isVertical));
             this.word.addToDescriptionList(description);
             this.word.addToWordList(word);
             this.word.addToFullList(word, description);
         } while (scan.hasNext());
-        System.out.println(this.word.getFullList());
-        System.out.println();
-
+        this.panel.setKey(this.word.getWordBankList());
         scan.close();
     }
 
+<<<<<<< Updated upstream
      /**
      * Creates the description of a vertical word for the crossword
      */
+=======
+
+>>>>>>> Stashed changes
     public void addVerticalDescription() {
         verticalDescription = "DOWN:\n";
         for (String str : panel.wordsFoundVertical(getCw())) {
             for (String value : this.word.getFullList()) {
-                String beginning = value.substring(0, value.indexOf(":"));
-                String end = value.substring(value.indexOf(":") + 1);
-                if (str.equalsIgnoreCase(beginning)) {
-                    verticalDescription += "- " + end + "\n\n ";
+                String word = value.substring(0, value.indexOf(":"));
+                String description = value.substring(value.indexOf(":") + 1, value.length() - 3);
+                if (str.equalsIgnoreCase(word)) {
+                    verticalDescription += "- " + description + "\n\n ";
                 }
             }
         }
@@ -139,19 +151,24 @@ public class CrosswordLayout {
         horizontalDescription = "ACROSS:\n";
         for (String str : panel.wordsFoundHorizontal(getCw())) {
             for (String value : this.word.getFullList()) {
-                String beginning = value.substring(0,value.indexOf(":"));
-                String end = value.substring(value.indexOf(":")+1);
-                if (str.equalsIgnoreCase(beginning)) {
-                    horizontalDescription += "- " + end + "\n\n ";
+                String word = value.substring(0,value.indexOf(":"));
+                String description = value.substring(value.indexOf(":")+1, value.length() - 3);
+                if (str.equalsIgnoreCase(word)) {
+                    horizontalDescription += "- " + description + "\n\n ";
                 }
             }
         }
         horizontalDescription = horizontalDescription.substring(0,horizontalDescription.length()-2);
     }
 
+<<<<<<< Updated upstream
   /**
      * Creates a 2D character array comprised of the characters that make up a crossword
      */
+=======
+
+
+>>>>>>> Stashed changes
     public char[][] getCw() {
         return cw;
     }

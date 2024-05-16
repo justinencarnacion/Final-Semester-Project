@@ -1,5 +1,5 @@
-Array: a way to store a set of information in Java
-Action: A word to describe when a program actually does something
-Static: When a method or variable isn’t attached to any specific object
-Return: to give something out of a method when its called
-Call: To retrieve a method and ask it to do something
+1 0 Array: a way to store a set of information in Java; v
+1 0 Action: A word to describe when a program actually does something; h
+0 2 Static: When a method or variable isn’t attached to any specific object; v
+3 0 Return: to give something out of a method when its called; h
+5 2 Call: To retrieve a method and ask it to do something; h

@@ -14,6 +14,8 @@ public class CrosswordGUI {
 
     private JTextArea descriptionArea = new JTextArea();
 
+    private JTextArea wordArea = new JTextArea();
+
     private CrosswordLayout layout1;
     private CrosswordLayout layout2;
     private CrosswordLayout layout3;
@@ -30,9 +32,14 @@ public class CrosswordGUI {
         return descriptionArea;
     }
 
+<<<<<<< Updated upstream
     // Creates the GUI comprised of the crossword panel and word bank 
     // @param none
     // @return none
+=======
+    public JTextArea getWordArea() {return wordArea;}
+
+>>>>>>> Stashed changes
     public void createAndShowGUI()
     {
         frame = new Frame(this);
@@ -51,6 +58,7 @@ public class CrosswordGUI {
             public void actionPerformed(ActionEvent e)
             {
                 layout1.generate();
+
             }
 
         });
