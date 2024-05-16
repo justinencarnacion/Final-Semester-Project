@@ -1,0 +1,39 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class WordChallenge extends JFrame {
+
+    public WordChallenge() {
+        setTitle("Word Challenge");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setupUI();
+    }
+
+    private void setupUI() {
+        setLayout(new BorderLayout());
+
+        JPanel challengePanel = new JPanel();
+        add(challengePanel, BorderLayout.CENTER);
+
+        JTextArea wordBankArea = new JTextArea();
+        wordBankArea.setText("Bank of Words Here");
+        wordBankArea.setEditable(true);
+        wordBankArea.setLineWrap(true);
+        wordBankArea.setWrapStyleWord(true);
+
+        JScrollPane scrollPane = new JScrollPane(wordBankArea);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        add(scrollPane, BorderLayout.SOUTH);
+
+        scrollPane.setPreferredSize(new Dimension(getWidth(), 200));
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            WordChallenge frame = new WordChallenge();
+            frame.setVisible(true);
+        });
+    }
+}
