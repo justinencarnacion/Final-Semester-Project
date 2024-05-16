@@ -30,6 +30,9 @@ public class CrosswordGUI {
         return descriptionArea;
     }
 
+    // Creates the GUI comprised of the crossword panel and word bank 
+    // @param none
+    // @return none
     public void createAndShowGUI()
     {
         frame = new Frame(this);
@@ -41,7 +44,7 @@ public class CrosswordGUI {
         layout4 = new CrosswordLayout(this, panel, "levelLayout", "levelFour", "level", "dFour");
         layout5 = new CrosswordLayout(this, panel, "levelLayout", "levelFIve", "level", "dFive");
 
-
+        // creates level 1 crossword frame
         frame.getLvl1Button().addActionListener(new ActionListener()
         {
             @Override
@@ -52,6 +55,7 @@ public class CrosswordGUI {
 
         });
 
+        // creates a level 2 crossword frame
         frame.getLvl2Button().addActionListener(new ActionListener()
         {
             @Override
@@ -62,6 +66,7 @@ public class CrosswordGUI {
 
         });
 
+        // creates the level 3 crossword frame
         frame.getLvl3Button().addActionListener(new ActionListener()
         {
             @Override
@@ -72,6 +77,7 @@ public class CrosswordGUI {
 
         });
 
+        // creates the level 4 crossword frame
         frame.getLvl4Button().addActionListener(new ActionListener()
         {
             @Override
@@ -82,6 +88,7 @@ public class CrosswordGUI {
 
         });
 
+        //creates the level 5 crossword frame
         frame.getLvl5Button().addActionListener(new ActionListener()
         {
             @Override
