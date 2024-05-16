@@ -1,0 +1,27 @@
+public class wordStore {
+	private String word;
+	private int xPos;
+	private int yPos;
+	private boolean isVertical;
+		
+	public wordStore(String w, int xP, int yP, boolean isVert) {
+		word = w;
+		xPos = xP;
+		yPos = yP;
+		isVertical = isVert;
+	}
+		
+	public String getWord() {
+		return word;
+	}
+	public int getXPos() {
+		return xPos;
+	}
+	public int getYPos() {
+		return yPos;
+	}
+	public boolean getIsVert() {
+		return isVertical;
+	}
+	
+}
