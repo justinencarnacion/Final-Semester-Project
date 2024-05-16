@@ -26,6 +26,10 @@ public class LetteredTextField extends JTextField {
         this.topRightCharacter = topRightCharacter;
     }
 
+     /**
+     * Creates text field of the crossword while also setting font characteristics
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
