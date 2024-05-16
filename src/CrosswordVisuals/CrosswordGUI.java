@@ -1,5 +1,7 @@
 package CrosswordVisuals;
 
+import CrosswordLogic.Word;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -7,8 +9,8 @@ import javax.swing.*;
 
 public class CrosswordGUI {
 
-    private final String w = "";
-    private final String description = "";
+    private String w;
+    private String description;
 
     private JTextArea descriptionArea = new JTextArea();
 
@@ -21,6 +23,8 @@ public class CrosswordGUI {
     private CrosswordPanel panel;
 
     private Frame frame;
+
+    private Word word;
 
     public JTextArea getDescriptionArea() {
         return descriptionArea;

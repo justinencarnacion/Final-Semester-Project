@@ -1,12 +1,26 @@
 package CrosswordVisuals;
 
 import javax.swing.*;
-import javax.swing.border.StrokeBorder;
 import java.awt.*;
+import java.util.ArrayList;
+import CrosswordLogic.Word;
 
 public class LetteredTextField extends JTextField {
 
     private String topRightCharacter;
+
+    private Word wordObject;
+
+    private ArrayList<String> verticalWords;
+    private ArrayList<String> horizontalWords;
+
+    CrosswordPanel fileReader = new CrosswordPanel();
+
+    CrosswordPanel panel;
+
+    CrosswordLayout layout;
+
+
 
     public LetteredTextField(String topRightCharacter) {
         this.topRightCharacter = topRightCharacter;
@@ -23,4 +37,19 @@ public class LetteredTextField extends JTextField {
 
         graphics2D.dispose();
     }
+
+    /*
+    Step 1:
+    - put the wordsFoundHorizontal into horizontalWords
+    - put wordsFoundVertical into verticalWords
+
+    Step 2:
+    - Create 2 methods that adds the 1A, 1D (A for Across, D for down) at the start of the word
+
+
+
+     */
+
+
+
 }

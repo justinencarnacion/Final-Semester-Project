@@ -11,7 +11,9 @@ public class Main {
                         {'P','P','A','L','E'},
                         {'L','P','P','L','E'},
                         {'E','P','P','L','E'} };
-        System.out.println(CrosswordPanel.wordsFoundVertical(cw));
+
+        CrosswordPanel c = new CrosswordPanel();
+        System.out.println(c.wordsFoundHorizontal(cw));
 
         CrosswordGUI GUI = new CrosswordGUI();
         GUI.createAndShowGUI();

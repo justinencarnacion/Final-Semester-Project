@@ -31,9 +31,12 @@ public class CrosswordPanel extends JPanel {
 
                     if (x == 0 && y == 2) {
                         textFields[x][y] = new LetteredTextField("1");
-                    } else {
-                        textFields[x][y] = new LetteredTextField("");
                     }
+                    else {
+                        textFields[x][y] = new LetteredTextField("");
+
+                    }
+
                     textFields[x][y].setPreferredSize(new Dimension(50, 50));
                     textFields[x][y].setFont(textFields[x][y].getFont().deriveFont(50.0f));
                     textFields[x][y].setDocument(new JTextFieldLimit(1));
@@ -75,6 +78,18 @@ public class CrosswordPanel extends JPanel {
         return crossword;
     }
 
+    public String toString() {
+        String s = "";
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[0].length; j++) {
+                s += data[i][j];
+            }
+        }
+        return s;
+    }
+
+
+
     void setGreen() {  //WORK ON THIS PLEASE
 
     }
@@ -97,7 +112,7 @@ public class CrosswordPanel extends JPanel {
     }*/
 
 
-    public static ArrayList<String> wordsFoundHorizontal(char[][] crossword){ //FINISHED
+    public ArrayList<String> wordsFoundHorizontal(char[][] crossword){ //FINISHED
         ArrayList<String> wordList = new ArrayList<String>();
         for (int i = 0; i < crossword.length; i++) {
             int j = 0;
@@ -119,7 +134,7 @@ public class CrosswordPanel extends JPanel {
         return wordList;
     }
 
-    public static ArrayList<String> wordsFoundVertical(char[][] crossword){ //FINISHED
+    public ArrayList<String> wordsFoundVertical(char[][] crossword){ //FINISHED
         ArrayList<String> wordList = new ArrayList<String>();
         for (int i = 0; i < crossword[0].length; i++) {
             int j = 0;
@@ -147,4 +162,8 @@ public class CrosswordPanel extends JPanel {
         }
     }
 
+
+    public char[][] getData() {
+        return data;
+    }
 }
