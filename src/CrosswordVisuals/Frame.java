@@ -22,6 +22,9 @@ public class Frame {
         this.GUI = GUI;
     }
 
+        /**
+     * Creates the crossword frame
+     */
     public void createFrame() {
 
 
@@ -77,15 +80,41 @@ public class Frame {
         f.setVisible(true);
     }
 
+        /**
+     * Returns the crossword panel
+     * @return panel
+     */
     public CrosswordPanel getPanel() {
         return panel;
     }
 
-
+     /**
+     * Creates button for level 1
+     * @return lvl1Button
+     */
     public JButton getLvl1Button(){return lvl1Button;}
+
+     /**
+     * Creates button for level 2
+     * @return lvl2Button
+     */
     public JButton getLvl2Button(){return lvl2Button;}
+
+     /**
+     * Creates button for level 3
+     * @return lvl3Button
+     */
     public JButton getLvl3Button(){return lvl3Button;}
+
+     /**
+     * Creates button for level 4
+     * @return lvl4Button
+     */
     public JButton getLvl4Button(){return lvl4Button;}
 
+     /**
+     * Creates button for level 5
+     * @return lvl5Button
+     */
     public JButton getLvl5Button(){return lvl5Button;}
 }
